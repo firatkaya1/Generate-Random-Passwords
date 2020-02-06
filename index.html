@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Password Kaya</title>
+</head>
+
+<body onload="defaultValues()">
+    <div class="container bg-light">
+        <form class=" mt-4 p-4">
+            <div class="form-group border p-3">
+                <p><b>Select Characters</b></p>
+                <div class="row">
+                    <div class="col-sm-2  mx-md-n2">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1" o>
+                            <label class="form-check-label" for="gridCheck1">lowercase Letters</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2  mx-md-n2">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="gridCheck2">
+                            <label class="form-check-label" for="gridCheck2">uppercase letters</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 mx-md-n2">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="gridCheck3">
+                            <label class="form-check-label" for="gridCheck3">numeric numbers</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 mx-md-n2">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="gridCheck4">
+                            <label class="form-check-label" for="gridCheck4">special symbols</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group border p-3">
+                <p><b>Password Lenght</b> </p>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <input type="range" class="custom-range" id="customRange1" min="8" max="64" oninput="passwordLength.value=customRange1.value" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="number" id="passwordLength" class="passwordLength" oninput="customRange1.value=passwordLength.value">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group border p-3">
+                <p><b>Password Quantity</b> </p>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <input type="range" class="custom-range" id="customRange2" min="1" max="1024" oninput="passwordquantity.value=customRange2.value" />
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="number" id="passwordquantity" class="passwordquantity" oninput="customRange2.value=passwordquantity.value">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group  border p-3">
+                <p><b>Select Format</b> </p>
+                <div class="row mx-md-n4">
+                    <div class="col-sm-2 px-md-n4">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="textFormat" onclick="checkeda(this.id)">
+                            <label class="form-check-label" for="textFormat">Text</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 px-md-n4">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="jsonFormat" onclick="checkeda(this.id)">
+                            <label class="form-check-label" for="jsonFormat">JSON</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 px-md-n4">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="xmlFormat" onclick="checkeda(this.id)">
+                            <label class="form-check-label" for="xmlFormat">XML</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group  border p-3">
+                <p><b>Select Output</b> </p>
+                <div class="row mx-md-n4">
+                    <div class="col-sm-2 px-md-n4">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="displayFormat" class="checkbox-size">
+                            <label class="form-check-label" for="displayFormat">Display</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 px-md-n4">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="downloadFormat">
+                            <label class="form-check-label" for="downloadFormat">Download</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 px-md-n4">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" id="emailFormat" disabled>
+                            <label class="form-check-label" for="emailFormat">Email</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#showPasswords" onclick="showAllPasswords()">Generate Password(s)</button>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="showPasswords" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalScrollableTitle">Password Genaration Completed.</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group  ">
+                                <label for="exampleFormControlSelect2">Click and Copy.</label>
+
+                                <button type="button" class="btn btn-info btn-sm float-right" data-toggle="tooltip" data-placement="left" title="Tooltip on top" disabled>
+                                   ?
+                                  </button>
+
+                                <textarea class="form-control" id="passwordSelectbox" rows="15"></textarea>
+
+                            </div>
+                        </div>
+                        <div class=" modal-footer ">
+                            <button type="button " class="btn btn-secondary " data-dismiss="modal">Close</button>
+                            <button type="button " class="btn btn-primary ">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+
+    <script src="js/jquery-3.4.1.min.js "></script>
+    <script src="js/bootstrap.js "></script>
+    <script src="js/bootstrap.min.js "></script>
+    <script src="js/custom.js "></script>
+    <script src="js/generatepassword.js "></script>
+</body>
+
+</html>
