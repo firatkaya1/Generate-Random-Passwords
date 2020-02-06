@@ -5,7 +5,7 @@ If you want to test visit my website.
 
 http://kayatech.me/passwordgenerator
 
-![Image](https://github.com/firatkaya1/Generate-Random-Passwords/blob/master/mobilescreen1.jpeg)
+![Image](https://github.com/firatkaya1/Generate-Random-Passwords/blob/master/mobilescreen1.jpeg){:height="50%" width="50%"}
 ![Image](https://github.com/firatkaya1/Generate-Random-Passwords/blob/master/mobilescreen2.jpeg)
 
 ![Image](https://github.com/firatkaya1/Create-Random-Passwords/blob/master/screenshoot.png)
